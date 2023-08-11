@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_width="match_parent"
+            android:background="@color/teal_700"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/toolbar"
+                app:titleTextColor="@color/white"
+                app:title="Die Roller"
+                android:minHeight="?attr/actionBarSize"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.DayNight">
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <TextView
+            android:id="@+id/tv_die_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+            app:layout_constraintEnd_toStartOf="@+id/tv_die_two"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="DIE VALUE"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_die_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toEndOf="@+id/tv_die_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/app_bar_layout"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="DIE VALUE"
+            android:visibility="gone"
+            android:textSize="14sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_die_value_one"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_die_one"
+            app:layout_constraintEnd_toStartOf="@+id/tv_die_two"
+            android:layout_marginTop="@dimen/dp_16"
+            android:text="...."
+            android:textSize="24sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_die_value_two"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:visibility="gone"
+            app:layout_constraintStart_toEndOf="@+id/tv_die_one"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_die_two"
+            android:layout_marginTop="@dimen/dp_16"
+            android:textStyle="bold"
+            android:text="...."
+            android:textSize="24sp"
+            />
+
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_roll"
+            style="@style/Widget.MaterialComponents.Button.UnelevatedButton"
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/black"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="Roll!"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_die_value_one"
+            app:strokeColor="@color/black" />
+
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_marginTop="@dimen/dp_24"
+            android:background="@color/cardview_dark_background"
+            app:layout_constraintTop_toBottomOf="@+id/btn_roll"
+            android:layout_height="0.1dp"/>
+
+        <TextView
+            android:id="@+id/tv_config"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/divider"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="CONFIGS"
+            android:textSize="20sp"
+            />
+
+        <TextView
+            android:id="@+id/tv_selection_hint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select a die type"
+            android:layout_marginTop="@dimen/dp_16"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_config"
+            />
+
+        <Spinner
+            android:id="@+id/tl_die_types"
+            app:layout_constraintTop_toBottomOf="@+id/tv_selection_hint"
+            android:layout_width="match_parent"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            android:background="@drawable/edit_text_background"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_height="50dp" />
+
+
+        <ImageView
+            android:id="@+id/iv_maturity2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tl_die_types"
+            app:layout_constraintEnd_toEndOf="@+id/tl_die_types"
+            app:layout_constraintTop_toTopOf="@id/tl_die_types"
+            app:srcCompat="@drawable/ic_drop_down_6"
+            app:tint="@color/teal_700" />
+
+        <TextView
+            android:id="@+id/tl_custom_die_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enter a die side count (custom die)"
+            android:layout_marginTop="@dimen/dp_16"
+            android:visibility="gone"
+            android:textSize="@dimen/sp_14"
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_die_types"
+            />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tl_custom_die_value"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="@dimen/dp_4"
+            android:layout_marginStart="@dimen/dp_16"
+            android:layout_marginEnd="@dimen/dp_16"
+            app:boxStrokeWidth="1dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tl_custom_die_label" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:inputType="number"
+                android:background="@drawable/edit_text_background"
+                android:layout_height="50dp"
+                />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+
+        <TextView
+            android:id="@+id/role_type_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginStart="@dimen/dp_16"
+            app:layout_constraintTop_toBottomOf="@+id/tl_custom_die_value"
+            android:layout_marginTop="@dimen/dp_24"
+            android:text="Roll Type:  "
+            android:textSize="14sp"
+            />
+
+
+        <RadioGroup
+            android:id="@+id/rollOptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/role_type_title"
+            android:layout_margin="10dp"
+            android:orientation="vertical">
+
+            <RadioButton
+                android:id="@+id/singleRadioButton"
+                android:layout_width="wrap_content"
+                android:checked="true"
+                android:layout_height="wrap_content"
+                android:text="Single Role" />
+
+            <RadioButton
+                android:id="@+id/doubleRadioButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Double Role" />
+
+        </RadioGroup>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</ScrollView>
