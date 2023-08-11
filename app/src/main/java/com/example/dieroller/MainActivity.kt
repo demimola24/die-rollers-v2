@@ -2,6 +2,7 @@ package com.example.dieroller
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.Toast
@@ -73,12 +74,14 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun performRoll(){
+        Log.d("performRoll","performRoll")
 
         //Get default or custom die type
         if(selectedDieType==-1){
             val customSelectedDieType  = binding.tlCustomDieValue.editText?.text.toString().toIntOrNull()
             if(customSelectedDieType==null){
                 Toast.makeText(this@MainActivity, "Kindly input a valid custom die type", Toast.LENGTH_SHORT).show()
+                return
             }else{
                 selectedDieType = customSelectedDieType
             }
@@ -99,12 +102,16 @@ class MainActivity : AppCompatActivity() {
             binding.tvDieValueTwo.text = "...."
             delay(500L)
 
-            val dieValue = Random().nextInt(selectedDieType)
+            //Random from 0 to selectedDieType-1
+            var dieValue = Random().nextInt(selectedDieType-1)
             binding.tvDieValueOne.text = "$dieValue"
 
+            Log.d("performRoll","performRolled => $dieValue")
+
             if(rollType==2){
-                val dieValue2 = Random().nextInt(selectedDieType)
-                binding.tvDieValueOne.text = "$dieValue2"
+                //Random from 0 to selectedDieType-1
+                dieValue = Random().nextInt(selectedDieType-1)
+                binding.tvDieValueTwo.text = "$dieValue"
             }
 
         }
